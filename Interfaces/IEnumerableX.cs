@@ -1,11 +1,13 @@
-﻿namespace CarXCodingExercises.Interfaces;
+﻿using System.Collections;
 
-public interface IEnumerableX
+namespace CarXCodingExercises.Interfaces;
+
+public interface IEnumerableX : IEnumerator
 {
-    
+    public IEnumerator GetEnumerator ();
 }
 
-public interface IEnumerableX<T> 
+public interface IEnumerableX<out T> : IEnumerableX
 {
-    
+    public new IEnumerator<T> GetEnumerator();
 }
