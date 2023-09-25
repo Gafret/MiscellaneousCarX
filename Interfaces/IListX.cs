@@ -1,6 +1,6 @@
 ﻿namespace CarXCodingExercises.Interfaces;
 
-public interface IListX : ICollectionX
+public interface IListX 
 {
     public int IndexOf(object item);
     public void Insert(int index, object item);
