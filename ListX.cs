@@ -26,10 +26,26 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
         }
         set
         {
-            int newCapacity = value;
-            T[] array = new T[newCapacity];
-            Array.Copy(_elements, 0, array, 0, _size);
-            _elements = array;
+            if (value > 0)
+            {
+                if (value < _size)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(value), "Given capacity is " +
+                                                                         "less than number of elements in the list");
+                } 
+            
+                int newCapacity = value;
+                T[] array = new T[newCapacity];
+                Array.Copy(_elements, 0, array, 0, _size);
+                _elements = array;
+                _version++;
+            }
+            else
+            {
+                _elements = new T[0];
+                _size = 0;
+                _version++;
+            }
         }
     }
 
@@ -86,7 +102,7 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
                 continue;
             }
             
-            elementsAfterDeletion[newIndex] = _elements[index];
+            elementsAfterDeletion[newIndex] = _elements[i];
             newIndex++;
         }
         
@@ -119,7 +135,8 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
     {
         if (_size == _elements.Length)
         {
-            Capacity = _elements.Length * 2;
+            if (Capacity == 0) Capacity = 4;
+            else Capacity = _elements.Length * 2;
         }
         
         _elements[_size] = item;
@@ -195,5 +212,19 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
     {
         Insert(index, (T) item);
     }
-    
+
+    public override string ToString()
+    {
+        string repr = "";
+        if (_size == 0) repr = "Empty ListX";
+        else
+        {
+            for (int i = 0; i < _size; i++)
+            {
+                repr += _elements[i].ToString() + " ";
+            }
+        }
+
+        return repr;
+    }
 }
