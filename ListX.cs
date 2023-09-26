@@ -62,7 +62,7 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
     public T this[int index] {
         get
         {
-            if (index >= _size)
+            if (index >= _size || index < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Index gets out of bounds of ListX");
             }
@@ -70,7 +70,7 @@ public class ListX<T> : IListX<T>, ICollectionX<T>, IEnumerable<T>
         }
         set
         {
-            if (index >= _size)
+            if (index >= _size || index < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Index gets out of bounds of ListX");
             }
