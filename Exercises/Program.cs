@@ -8,6 +8,7 @@ list.Add(1);
 list.Add(1);
 list.Add(1);
 list.Add(1);
+list.Clear();
 Console.WriteLine(list);
 list.Add(5);
 Console.WriteLine(list);

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarXCodingExercises", "Exercises/CarXCodingExercises.csproj", "{BF9DE5A1-32C9-4C6D-A20C-DF0DA4B76CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercises.Tests", "Exercises.Tests\Exercises.Tests.csproj", "{765362EB-1186-4002-9D9A-0516EE383209}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF9DE5A1-32C9-4C6D-A20C-DF0DA4B76CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF9DE5A1-32C9-4C6D-A20C-DF0DA4B76CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF9DE5A1-32C9-4C6D-A20C-DF0DA4B76CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF9DE5A1-32C9-4C6D-A20C-DF0DA4B76CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{765362EB-1186-4002-9D9A-0516EE383209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765362EB-1186-4002-9D9A-0516EE383209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765362EB-1186-4002-9D9A-0516EE383209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{765362EB-1186-4002-9D9A-0516EE383209}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
