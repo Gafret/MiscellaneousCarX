@@ -90,6 +90,13 @@ public class LinkedListX<T> : IListX<T>
     
     public int Add(T item)
     {
+        if (_head is null)
+        {
+            _head = new ListNode(item);
+            _size++;
+            return 0;
+        }
+        
         ListNode lastNode = GetNodeAtIndex(Count - 1);
         lastNode.Next = new ListNode(item);
         _size++;
@@ -111,17 +118,24 @@ public class LinkedListX<T> : IListX<T>
     public bool Remove(T item)
     {
         ListNode? node = _head;
+        
+        if (node is not null && node.Value.Equals(item))
+        {
+            _head = _head.Next;
+            _size--;
+            return true;
+        }
+        
         while (node?.Next is not null)
         {
             if (node.Next.Value.Equals(item))
             {
                 node.Next = node.Next.Next;
+                _size--;
                 return true;
             }
             node = node.Next;
         }
-
-        _size--;
 
         return false;
     }
@@ -145,14 +159,14 @@ public class LinkedListX<T> : IListX<T>
         if (index < 0 || index >= Count)
             throw new ArgumentOutOfRangeException(nameof(index), "Index is out of bounds of the list");
         ListNode nodeToInsert = new ListNode(item);
-        if (index > 1)
+        if (index > 0)
         {
             ListNode nodeBeforeInserted = GetNodeAtIndex(index - 1);
 
             nodeToInsert.Next = nodeBeforeInserted.Next;
             nodeBeforeInserted.Next = nodeToInsert;
         } 
-        else if (index == 1)
+        else if (index == 0)
         {
             nodeToInsert.Next = _head;
             _head = nodeToInsert;
